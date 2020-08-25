@@ -1,10 +1,8 @@
 <?php
 
-   $db = new MyDB();
+$db = new SQLite3('/tmp/db.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
 
-   $db = new SQLite3('/tmp/db.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
-
-   $db->query('CREATE TABLE IF NOT EXISTS "visits" (
+$db->query('CREATE TABLE IF NOT EXISTS "visits" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     "url" VARCHAR,
     "time" DATETIME
@@ -20,4 +18,3 @@ $visits = $db->querySingle('SELECT COUNT(id) FROM "visits"');
 echo("User visits: $visits");
 
 $db->close();
-?>
