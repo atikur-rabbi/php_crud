@@ -1,11 +1,11 @@
 {
   "functions": {
-    "api/*.php": {
+    "api/index.php": {
       "runtime": "vercel-php@0.3.1"
     }
   },
-  "routes": [
-    { "src": "/(.*)", "dest": "/api/$1" },
-    { "src": "/favicon.ico", "dest": "https://juicy.vercel.app/favicon.ico" }
+  "rewrites": [
+    { "source": "/favicon.ico", "destination": "https://juicy.vercel.app/favicon.ico" },
+    { "source": "/(.*)", "destination": "/api/index.php" }
   ]
 }
