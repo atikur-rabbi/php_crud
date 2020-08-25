@@ -1,5 +1,10 @@
 <?php session_start();
 
+spl_autoload_register('autoloader');
+
+function autoloader($class){
+	include("$class.php");
+}
 
 class Db {
 
